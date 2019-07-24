@@ -1,0 +1,48 @@
+﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.29">
+
+  <PropertyGroup>
+    <!--<TargetFramework>netstandard2.0</TargetFramework>-->
+    <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">netstandard1.0;netstandard2.0;MonoAndroid70;MonoAndroid71;MonoAndroid80;MonoAndroid81;MonoAndroid90;</TargetFrameworks>
+    <!--<TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netstandard2.0;MonoAndroid60;MonoAndroid70;MonoAndroid71;MonoAndroid80;MonoAndroid81;MonoAndroid90;</TargetFrameworks>-->
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
+    <NeutralLanguage>en</NeutralLanguage>
+    <LangVersion>7.2</LangVersion>
+    <AssemblyName>PerformanceTracker</AssemblyName>
+    <RootNamespace>PerformanceTracker</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--<None Include="..\nugetreadme.txt" PackagePath="readme.txt" Pack="true" />
+    <PackageReference Include="mdoc" Version="5.7.4.3" PrivateAssets="All" />
+    <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />-->
+    <Compile Include="**\*.shared.cs" />
+    <Compile Include="**\*.shared.*.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard1.')) ">
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
+    <Compile Include="**\*.netstandard.cs" />
+    <Compile Include="**\*.netstandard.*.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
+    <Compile Include="**\*.android.cs" />
+    <Compile Include="**\*.android.*.cs" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+    <AndroidResource Include="Resources\xml\*.xml" />
+    <PackageReference Include="Xamarin.Android.Support.Compat" Version="28.0.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.CustomTabs" Version="28.0.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.1" />
+  </ItemGroup>
+</Project>
