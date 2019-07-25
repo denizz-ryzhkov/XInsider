@@ -23,23 +23,24 @@ namespace PerformanceTracker
         public void Checkpoint(string name, string description = null, Dictionary<string, object> parameters = null)
         {
 #if DEBUG
-            Debug.WriteLine($"TraceEventsHandler.Checkpoint {name}");
+            Debug.WriteLine($"TraceEventsHandler.Single {name}");
 #endif
 
             var ts = PTrackerTimeProvider.Source.Elapsed;
             var evt = new TraceEvent(name, description, parameters)
             {
-                EventMode = TraceEventMode.CheckPoint
+                EventPeriod = TraceEventPeriod.Single
             };
             evt.SetOccuredAt(ts);
             this._events[evt.Id] = evt;
         }
-        public TraceEvent StartEvent(string name, string description, Dictionary<string, object> parameters)
+
+        public TraceEvent StartEvent(string name, string description = null, Dictionary<string, object> parameters = null)
         {
             var ts = PTrackerTimeProvider.Source.Elapsed;
             var evt = new TraceEvent(name, description, parameters)
             {
-                EventMode = TraceEventMode.Continuous
+                EventPeriod = TraceEventPeriod.Period
             };
 
             evt.SetStartedAt(ts);
@@ -47,11 +48,24 @@ namespace PerformanceTracker
             return evt;
         }
 
-        public bool MarkFinished(Guid id)
+        public void MakeEvent(TimeSpan period, string name, string description = null, Dictionary<string, object> parameters = null)
+        {
+            var ts = PTrackerTimeProvider.Source.Elapsed;
+            var evt = new TraceEvent(name, description, parameters)
+            {
+                EventPeriod = TraceEventPeriod.PredefinedPeriod
+            };
+
+            evt.SetStartedAt(ts);
+            evt.SetFinishedAt(ts.Add(period));
+            this._events[evt.Id] = evt;
+        }
+
+        public bool FinishEvent(Guid id)
         {
             if (this._events.TryGetValue(id, out var evt))
             {
-                if (evt.EventMode == TraceEventMode.Continuous)
+                if (evt.EventPeriod == TraceEventPeriod.Period)
                 {
                     var ts = PTrackerTimeProvider.Source.Elapsed;
                     evt.SetFinishedAt(ts);

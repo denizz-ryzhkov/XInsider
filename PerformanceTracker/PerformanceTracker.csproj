@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <!--<TargetFramework>netstandard2.0</TargetFramework>-->
-    <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">netstandard1.0;netstandard2.0;MonoAndroid70;MonoAndroid71;MonoAndroid80;MonoAndroid81;MonoAndroid90;</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">netstandard2.0;MonoAndroid70;MonoAndroid71;MonoAndroid80;MonoAndroid81;MonoAndroid90;</TargetFrameworks>
     <!--<TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netstandard2.0;MonoAndroid60;MonoAndroid70;MonoAndroid71;MonoAndroid80;MonoAndroid81;MonoAndroid90;</TargetFrameworks>-->
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
@@ -26,9 +26,9 @@
     <Compile Include="**\*.shared.*.cs" />
   </ItemGroup>
 
-  <ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard1.')) ">
+  <!--<ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard1.')) ">
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
-  </ItemGroup>
+  </ItemGroup>-->
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
     <Compile Include="**\*.netstandard.cs" />

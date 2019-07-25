@@ -14,7 +14,7 @@ namespace PerformanceTracker
         }
 
         public Guid Id { get; protected set; }
-        public TraceEventMode EventMode { get; internal set; }
+        public TraceEventPeriod EventPeriod { get; internal set; }
         public TimeSpan StartedAt { get; protected set; }
         public TimeSpan FinishedAt { get; protected set; }
         public TimeSpan Delta { get; protected set; }
