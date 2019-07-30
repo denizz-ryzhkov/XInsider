@@ -11,5 +11,15 @@ namespace PerformanceTracker
         bool FinishEvent(Guid id);
         TraceEvent GetEvent(Guid id);
         IList<TraceEvent> GetEvents();
+        IReadOnlyDictionary<string, object> SessionParameters { get; }
+        void AddSessionParameter(string key, object value);
+        void RemoveSessionParameter(string key);
+    }
+
+
+    public enum SessionParameter
+    {
+        SessionId,
+        DeviceId
     }
 }

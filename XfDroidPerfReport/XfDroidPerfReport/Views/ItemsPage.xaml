@@ -50,6 +50,11 @@
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
                                 Text="{Binding Description}" />
+
+                            <Image
+                                HeightRequest="100"
+                                Source="https://picsum.photos/2000/3000"
+                                WidthRequest="100" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
