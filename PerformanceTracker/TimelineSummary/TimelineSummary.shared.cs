@@ -20,7 +20,7 @@ namespace PerformanceTracker
 
                 try
                 {
-                    var events = TraceEventsHandler.Current.GetEvents().ToArray();
+                    //var events = TraceEventsHandler.Current.GetEvents().ToArray();
                     var fpsTimeline = RenderingMetricsRecorder.Current.GetFrames().ToArray();
 
                     var eSummary = TraceEventsHandler.Current.GetEvents().Select(x => new EventSummary(x)).ToArray();
@@ -33,7 +33,7 @@ namespace PerformanceTracker
                     var sb = new StringBuilder();
 
                     sb.AppendLine("======= EVENTS =======");
-                    foreach (var es in eSummary)
+                    foreach (var es in eSummary.OrderBy(x => x.Event.StartedAt))
                     {
 
                         sb.AppendLine("");

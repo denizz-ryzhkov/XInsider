@@ -95,10 +95,16 @@ namespace PerformanceTracker
 
         public void StopFrameMetrics(Activity activity)
         {
-            if (_listener != null)
+            try
             {
-                activity.Window.RemoveOnFrameMetricsAvailableListener(_listener);
-                _listener = null;
+                if (_listener != null)
+                {
+                    //activity.Window.RemoveOnFrameMetricsAvailableListener(_listener);
+                    _listener = null;
+                }
+            }
+            catch (Exception e)
+            {
             }
         }
 
