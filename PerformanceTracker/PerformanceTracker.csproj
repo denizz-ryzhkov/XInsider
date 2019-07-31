@@ -13,7 +13,7 @@
 
 
     <PackageId>XInsider</PackageId>
-    <PackageIconUrl>https://raw.githubusercontent.com//Barvy/Tracking/master/Assets/package-icon-128x128.png</PackageIconUrl>
+    <PackageIconUrl>https://github.com/Barvy/XInsider/raw/master/Assets/package-icon-128x128.png</PackageIconUrl>
     <Summary>todo</Summary>
     <PackageTags>xamarin, windows, android, xamarin.forms</PackageTags>
     <Title>Xamarin.Essentials</Title>
@@ -22,18 +22,18 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
     <PackageVersion>$(Version)$(VersionSuffix)</PackageVersion>
-    <Authors>Microsoft</Authors>
-    <Owners></Owners>
+    <Authors>Dmytro Bondarenko</Authors>
+    <Owners>Dmytro Bondarenko</Owners>
     <NeutralLanguage>en</NeutralLanguage>
-    <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
-    <RepositoryUrl>https://github.com/Barvy/Tracking</RepositoryUrl>
-    <PackageReleaseNotes>See: https://github.com/Barvy/Tracking</PackageReleaseNotes>
+    <Copyright>© Barvy. All rights reserved.</Copyright>
+    <RepositoryUrl>https://github.com/Barvy/XInsider</RepositoryUrl>
+    <PackageReleaseNotes>See: https://github.com/Barvy/XInsider</PackageReleaseNotes>
     <LangVersion>7.2</LangVersion>
-    <PackageLicenseUrl>https://github.com/Barvy/Tracking</PackageLicenseUrl>
+    <PackageLicenseUrl>https://github.com/Barvy/XInsider</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageProjectUrl>https://github.com/Barvy/Tracking</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/Barvy/XInsider</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.1.1</Version>
+    <Version>0.0.1.2</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
