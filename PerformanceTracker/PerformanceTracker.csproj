@@ -4,18 +4,45 @@
     <!--<TargetFramework>netstandard2.0</TargetFramework>-->
     <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">netstandard2.0;MonoAndroid70;MonoAndroid71;MonoAndroid80;MonoAndroid81;MonoAndroid90;</TargetFrameworks>
     <!--<TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netstandard2.0;MonoAndroid60;MonoAndroid70;MonoAndroid71;MonoAndroid80;MonoAndroid81;MonoAndroid90;</TargetFrameworks>-->
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <LangVersion>7.2</LangVersion>
     <AssemblyName>PerformanceTracker</AssemblyName>
     <RootNamespace>PerformanceTracker</RootNamespace>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <DebugType>portable</DebugType>
+
+
+    <PackageId>XInsider</PackageId>
+    <PackageIconUrl>https://raw.githubusercontent.com//Barvy/Tracking/master/Assets/package-icon-128x128.png</PackageIconUrl>
+    <Summary>todo</Summary>
+    <PackageTags>xamarin, windows, android, xamarin.forms</PackageTags>
+    <Title>Xamarin.Essentials</Title>
+    <Description>todo</Description>
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
+    <PackageVersion>$(Version)$(VersionSuffix)</PackageVersion>
+    <Authors>Microsoft</Authors>
+    <Owners></Owners>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
+    <RepositoryUrl>https://github.com/Barvy/Tracking</RepositoryUrl>
+    <PackageReleaseNotes>See: https://github.com/Barvy/Tracking</PackageReleaseNotes>
+    <LangVersion>7.2</LangVersion>
+    <PackageLicenseUrl>https://github.com/Barvy/Tracking</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/Barvy/Tracking</PackageProjectUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.0.1.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
     <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+
+  <PropertyGroup Label="Android DesignTimeBuild error workaround" Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
+    <DesignTimeBuild>false</DesignTimeBuild>
   </PropertyGroup>
 
   <ItemGroup>
