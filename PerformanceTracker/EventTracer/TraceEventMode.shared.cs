@@ -1,8 +1,9 @@
 ﻿namespace PerformanceTracker
 {
-    public enum TraceEventMode
+    public enum TraceEventPeriod
     {
-        CheckPoint = 0
-        , Continuous = 1
+        Single = 0,
+        Period = 1,
+        PredefinedPeriod = 2
     }
 }

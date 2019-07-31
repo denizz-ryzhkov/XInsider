@@ -57,6 +57,8 @@ namespace XfDroidPerfReport.Views
         {
             base.OnAppearing();
 
+            TraceEventsHandler.Current.MakeEvent(TimeSpan.FromMilliseconds(2000), "Adding Elements", null, null);
+
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
         }

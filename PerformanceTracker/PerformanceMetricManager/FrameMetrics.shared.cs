@@ -40,10 +40,10 @@ namespace PerformanceTracker
         }
         public string InformationAboutFrame()
         {
-            float layoutMeasureDurationMs = (float)(0.000001 * LayoutMeasureDuration);
-            float drawDurationMs = (float)(0.000001 * DrawDuration);
-            float gpuCommandMs = (float)(0.000001 * CommandIssueDuration);
-            var totalDurationMs = (float)(0.000001 * TotalDuration);
+            float layoutMeasureDurationMs = ToMs(LayoutMeasureDuration);
+            float drawDurationMs = ToMs(DrawDuration);
+            float gpuCommandMs = ToMs(CommandIssueDuration);
+            var totalDurationMs = ToMs(TotalDuration);
             var allFrames = FrameNumber;
             var jankyFrames = JunkyFrameNumber;
 
@@ -56,6 +56,11 @@ namespace PerformanceTracker
             return msg;
 
             //Log.Warn("FrameMetricsDataData", msg);
+        }
+
+        public static float ToMs(long lng)
+        {
+            return (float)(0.000001 * lng);
         }
     }
 }
